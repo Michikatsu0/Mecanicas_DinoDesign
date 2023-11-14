@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public float jumpForce;
 
+    public LayerMask groundLayer;
+    private bool isGrounded;
+    public Transform feetPosition;
+    public float groundCheckCircle;
+
+
     void Update()
     {
         input = Input.GetAxisRaw("Horizontal");
