@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Escaleras
   - 
   - 
   - 
@@ -40,28 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Background
-    uniqueID: 3106577069
-    locked: 0
-  - name: Subbackground
-    uniqueID: 210191931
-    locked: 0
-  - name: Probsbackground
-    uniqueID: 3336846017
-    locked: 0
-  - name: Ground
-    uniqueID: 3579585595
-    locked: 0
-  - name: Player
-    uniqueID: 3897487801
-    locked: 0
-  - name: Probsforeground
-    uniqueID: 1634648055
-    locked: 0
-  - name: Subforeground
-    uniqueID: 282163989
-    locked: 0
-  - name: Foreground
-    uniqueID: 976244513
     locked: 0
