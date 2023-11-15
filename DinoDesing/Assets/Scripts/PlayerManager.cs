@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -6,15 +7,17 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    
+
     public List<AnimatorController> animatorControllers;
+    public List<GameObject> dinoColliders;
     private Rigidbody2D playerRb;
     private Animator animator;
 
     public LayerMask groundLayer;
-   
+
     public float speed, jumpForce, groundRadiusCircle, maxDistanceCircle;
     private float input;
+    private int currentDino;
     private bool canJump = true;
 
     private int HCMove = Animator.StringToHash("Move");
@@ -28,7 +31,8 @@ public class PlayerManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerRb = GetComponent<Rigidbody2D>();
-        animator.runtimeAnimatorController = animatorControllers[0];
+        
+        ChandeDino(currentDino);
     }
 
     void Update()
@@ -37,7 +41,7 @@ public class PlayerManager : MonoBehaviour
 
         if (input < 0)
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        else if (input > 0) 
+        else if (input > 0)
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         if (canJump && Input.GetButton("Jump") && IsGrounded())
@@ -53,6 +57,17 @@ public class PlayerManager : MonoBehaviour
         animator.SetBool(HCMove, input != 0);
         animator.SetBool(HCGrounded, IsGrounded());
 
+    }
+
+    private void ChandeDino(int dino)
+    {
+        foreach (var colliders in dinoColliders)
+            colliders.SetActive(false);
+
+        dino = Mathf.Clamp(dino, 0, animatorControllers.Count);
+
+        dinoColliders[dino].SetActive(true);
+        animator.runtimeAnimatorController = animatorControllers[dino];
     }
 
     private bool IsGrounded()
