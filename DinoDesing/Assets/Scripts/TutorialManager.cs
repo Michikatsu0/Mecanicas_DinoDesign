@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    public PlayerMovement playerMovement;
+    //public PlayerMovement playerMovement;
     public GameObject[] popUps;
     private int popUpIndex;
     //public GameObject spawner;
@@ -46,8 +46,11 @@ public class TutorialManager : MonoBehaviour
             }
             else if (popUpIndex == 2)
             {
-
-            }
+                if (Input.GetButton("Jump"))
+                {   
+                popUpIndex++;
+                }
+             }
             else if (popUpIndex == 3)
             {
 
