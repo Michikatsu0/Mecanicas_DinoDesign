@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 1143569058}
   - component: {fileID: 1143569057}
   - component: {fileID: 1143569060}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Open Sprite Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -746,8 +746,8 @@ MonoBehaviour:
     m_Bits: 64
   speed: 10
   jumpForce: 30
-  groundRadiusCircle: 2.59
-  maxDistanceCircle: 1.62
+  groundRadiusCircle: 0.85
+  maxDistanceCircle: 1.16
 --- !u!95 &1471840606
 Animator:
   serializedVersion: 5
