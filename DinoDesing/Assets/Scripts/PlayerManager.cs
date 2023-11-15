@@ -17,12 +17,12 @@ public class PlayerManager : MonoBehaviour
 
     public float speed, jumpForce, groundRadiusCircle, maxDistanceCircle;
     private float input;
-    private int currentDino;
+    private int currentDinoIndex;
     private bool canJump = true;
 
     private int HCMove = Animator.StringToHash("Move");
     private int HCGrounded = Animator.StringToHash("IsGrounded");
-
+    private int HCJump = Animator.StringToHash("Jump");
     private int HCHurt = Animator.StringToHash("Hurt");
     private int HCAttack = Animator.StringToHash("Attack");
     private int HCDead = Animator.StringToHash("Dead");
@@ -31,8 +31,9 @@ public class PlayerManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerRb = GetComponent<Rigidbody2D>();
-        
-        ChandeDino(currentDino);
+
+
+        ChangeDino(currentDinoIndex);
     }
 
     void Update()
@@ -53,21 +54,22 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
             canJump = true;
 
-
+        animator.SetBool(HCJump, !canJump);
         animator.SetBool(HCMove, input != 0);
         animator.SetBool(HCGrounded, IsGrounded());
 
     }
 
-    private void ChandeDino(int dino)
+    public void ChangeDino(int delta)
     {
         foreach (var colliders in dinoColliders)
             colliders.SetActive(false);
 
-        dino = Mathf.Clamp(dino, 0, animatorControllers.Count);
+        currentDinoIndex -= delta;
+        currentDinoIndex = Mathf.Clamp(currentDinoIndex, 0, animatorControllers.Count - 1);
 
-        dinoColliders[dino].SetActive(true);
-        animator.runtimeAnimatorController = animatorControllers[dino];
+        dinoColliders[currentDinoIndex].SetActive(true);
+        animator.runtimeAnimatorController = animatorControllers[currentDinoIndex];
     }
 
     private bool IsGrounded()
