@@ -1,14 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-
-    public List<AnimatorController> animatorControllers;
+    public List<AnimatorController> animatorControllers = new List<AnimatorController>();
     public List<GameObject> dinoColliders = new List<GameObject>();
     public List<Transform> dinoEffectTransform = new List<Transform>();
     public List<ParticleSystem> particleSystems = new List<ParticleSystem>();
@@ -23,8 +20,8 @@ public class PlayerManager : MonoBehaviour
     public float speed, jumpForce, groundRadiusCircle, maxDistanceCircle;
     private float inputX, inputY;
     private int currentDinoIndex;
-    private bool canJump = true, flag = true, deadScript, isClimbing;
-
+    private bool canJump = true, flag = true, isClimbing;
+    public bool deadScript;
     private int HCMove = Animator.StringToHash("Move");
     private int HCGrounded = Animator.StringToHash("IsGrounded");
     private int HCJump = Animator.StringToHash("Jump");

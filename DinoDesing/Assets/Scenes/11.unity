@@ -5917,6 +5917,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e8db97f4cd382a4d89a69433084641b, type: 3}
+--- !u!114 &1007684603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 215436082302282011, guid: 3e8db97f4cd382a4d89a69433084641b, type: 3}
+  m_PrefabInstance: {fileID: 1007684602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10be835515d9b0b4c8aca5d162b7ef45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1037874137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5394784310389992335, guid: 0612877c19eb87843b75a0f1df6a962a, type: 3}
@@ -7013,8 +7024,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 52866135
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d70111b06af15f44ad2564b7d1b77c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13615,6 +13626,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fd2db1fae5ab9c4e82eceb1578c97c2, type: 3}
+--- !u!114 &5745148684372125109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5745148685306233237, guid: 8fd2db1fae5ab9c4e82eceb1578c97c2, type: 3}
+  m_PrefabInstance: {fileID: 5745148684372125108}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea18dbffebad6d40be61c97746dcaf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6080144251775751424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13747,6 +13769,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8248726794974837152, guid: 86dcca5b13452e840a5d71dfbdb3f627, type: 3}
+      propertyPath: nubeDeadNuke
+      value: 
+      objectReference: {fileID: 5745148684372125109}
+    - target: {fileID: 8248726794974837152, guid: 86dcca5b13452e840a5d71dfbdb3f627, type: 3}
+      propertyPath: playerManager
+      value: 
+      objectReference: {fileID: 1007684603}
     - target: {fileID: 8248726794974837152, guid: 86dcca5b13452e840a5d71dfbdb3f627, type: 3}
       propertyPath: CompleteLevelUI
       value: 

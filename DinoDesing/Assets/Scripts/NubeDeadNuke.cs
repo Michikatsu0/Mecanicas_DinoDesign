@@ -6,16 +6,19 @@ public class NubeDeadNuke : MonoBehaviour
 {
     public float nubeSpeed = 3f;
     public GameObject panelDead;
-
+    public bool deadScript;
+    private Collider2D col2d;
     private void Start()
     {
         panelDead.SetActive(false);
+        col2d = GetComponent<Collider2D>();
     }
 
     private void Update()
     {
         transform.Translate(Vector2.right * nubeSpeed * Time.deltaTime);
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,6 +28,7 @@ public class NubeDeadNuke : MonoBehaviour
 
         if (player)
         {
+            if (deadScript) return;
             player.Dead();
             panelDead.SetActive(true);
         }

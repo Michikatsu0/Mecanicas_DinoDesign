@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &675045883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 675045885}
+  - component: {fileID: 675045884}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &675045885
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675045883}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7444203628902965730}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &675045884
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675045883}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 3.4854937, y: 9.786743}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.863802, y: 18.942585}
+  m_EdgeRadius: 0
 --- !u!1 &7444203628902965728
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,6 +88,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8248726794974837153}
+  - {fileID: 675045885}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -151,6 +210,22 @@ PrefabInstance:
     - target: {fileID: 1528482321906759497, guid: fe42fad757acf8f40b3f623ae4d8635f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528482321906759498, guid: fe42fad757acf8f40b3f623ae4d8635f, type: 3}
+      propertyPath: m_Size.x
+      value: 2.9491577
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528482321906759498, guid: fe42fad757acf8f40b3f623ae4d8635f, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3360393
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528482321906759498, guid: fe42fad757acf8f40b3f623ae4d8635f, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.6421204
+      objectReference: {fileID: 0}
+    - target: {fileID: 1528482321906759498, guid: fe42fad757acf8f40b3f623ae4d8635f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.16802013
       objectReference: {fileID: 0}
     - target: {fileID: 1528482321906759499, guid: fe42fad757acf8f40b3f623ae4d8635f, type: 3}
       propertyPath: m_Name
