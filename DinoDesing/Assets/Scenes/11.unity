@@ -1278,6 +1278,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18c512019c1cf1c4b82f8201e03c2e4d, type: 3}
+--- !u!1 &401353941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8474139843677697937, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+  m_PrefabInstance: {fileID: 1112488785}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &432639381
 GameObject:
   m_ObjectHideFlags: 0
@@ -9863,6 +9868,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5745148685306233237, guid: 8fd2db1fae5ab9c4e82eceb1578c97c2, type: 3}
+      propertyPath: panelDead
+      value: 
+      objectReference: {fileID: 401353941}
     - target: {fileID: 5745148685306233258, guid: 8fd2db1fae5ab9c4e82eceb1578c97c2, type: 3}
       propertyPath: m_Name
       value: Nube M.O.A.B.
