@@ -9,21 +9,16 @@ public class PlayerManager : MonoBehaviour
 {
 
     public List<AnimatorController> animatorControllers;
-    public List<GameObject> dinoColliders = new List<GameObject>();
-    public List<Transform> dinoEffectTransform = new List<Transform>();
-    public List<ParticleSystem> particleSystems = new List<ParticleSystem>();
-    public List<AudioClip> audioClips = new List<AudioClip>();
-    public LayerMask groundLayer;
-
+    public List<GameObject> dinoColliders;
     private Rigidbody2D playerRb;
     private Animator animator;
-    
-    private AudioSource audioSource;
-    
+
+    public LayerMask groundLayer;
+
     public float speed, jumpForce, groundRadiusCircle, maxDistanceCircle;
     private float input;
     private int currentDinoIndex;
-    private bool canJump = true, flag = true, deadScript;
+    private bool canJump = true;
 
     private int HCMove = Animator.StringToHash("Move");
     private int HCGrounded = Animator.StringToHash("IsGrounded");
@@ -36,30 +31,14 @@ public class PlayerManager : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerRb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
+
 
         ChangeDino(currentDinoIndex);
     }
 
     void Update()
     {
-        if (deadScript) return;
-
-        input = Input.GetAxis("Horizontal");
-
-        if (input != 0)
-        {
-            if (flag)
-            {
-                flag = false;
-                particleSystems[1].Play();
-            }
-        }
-        else
-        {
-            particleSystems[1].Stop();
-            flag = true;
-        }
+        input = Input.GetAxisRaw("Horizontal");
 
         if (input < 0)
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
@@ -75,58 +54,22 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetButtonUp("Jump"))
             canJump = true;
 
-
-
         animator.SetBool(HCJump, !canJump);
         animator.SetBool(HCMove, input != 0);
         animator.SetBool(HCGrounded, IsGrounded());
+
     }
 
-    public void Dead()
-    {
-        animator.SetBool(HCDead, true);
-        deadScript = true;
-        StartCoroutine(DisableDead());
-    }
-
-    private IEnumerator DisableDead()
-    {
-        yield return new WaitForSeconds(0.1f);
-        animator.SetBool(HCDead, false);
-    }
-
-    public void Attack()
-    {
-        animator.SetBool(HCAttack, true);
-        StartCoroutine(DisableAttack());
-    }
-
-    private IEnumerator DisableAttack()
-    {
-        yield return new WaitForSeconds(0.25f);
-        animator.SetBool(HCAttack, false);
-    }
-
-    public void ChangeDino(int evolutionVar)
+    public void ChangeDino(int delta)
     {
         foreach (var colliders in dinoColliders)
             colliders.SetActive(false);
 
-        animator.SetBool(HCAttack, true);
-        currentDinoIndex -= evolutionVar;
+        currentDinoIndex -= delta;
         currentDinoIndex = Mathf.Clamp(currentDinoIndex, 0, animatorControllers.Count - 1);
-        PlayAudioChange(currentDinoIndex);
+
         dinoColliders[currentDinoIndex].SetActive(true);
         animator.runtimeAnimatorController = animatorControllers[currentDinoIndex];
-        animator.SetBool(HCAttack, false);
-
-        StartCoroutine(ParticleChange());
-    }
-
-    private IEnumerator ParticleChange()
-    {
-        yield return new WaitForSeconds(0.25f);
-        particleSystems[0].Play();
     }
 
     private bool IsGrounded()
@@ -137,26 +80,14 @@ public class PlayerManager : MonoBehaviour
             return false;
     }
 
-    private void PlayAudioChange(int evolutionVar)
-    {
-        if (evolutionVar == 0)
-            audioSource.PlayOneShot(audioClips[0]);
-        else if (evolutionVar == 1)
-            audioSource.PlayOneShot(audioClips[1]);
-        else if (evolutionVar == 2)
-            audioSource.PlayOneShot(audioClips[2]);
-    }
-
     void FixedUpdate()
     {
-        if (deadScript) return;
-
         playerRb.velocity = new Vector2(input * speed, playerRb.velocity.y);
     }
 
     private Vector3 center;
 
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
         center.y = -maxDistanceCircle;
