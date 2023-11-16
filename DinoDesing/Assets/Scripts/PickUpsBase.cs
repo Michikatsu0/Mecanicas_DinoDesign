@@ -9,6 +9,7 @@ public class PickUpsBase : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool flag = true;
     public Collider2D colRgbd;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -19,14 +20,21 @@ public class PickUpsBase : MonoBehaviour
         GameObject target = collision.gameObject;
 
         var player = target.GetComponentInParent<PlayerManager>();
-        
+
         if (player && flag)
         {
             flag = false;
-            player.ChangeDino(evolutionVar);
-            colRgbd.isTrigger = true;
-            spriteRenderer.enabled = false;
-            Destroy(gameObject, 1f);
+            player.Attack();
+            StartCoroutine(DinoChange(player));
         }
+    }
+
+    private IEnumerator DinoChange(PlayerManager player)
+    {
+        yield return new WaitForSeconds(0.5f);
+        player.ChangeDino(evolutionVar);
+        colRgbd.isTrigger = true;
+        spriteRenderer.enabled = false;
+        Destroy(gameObject, 1f);
     }
 }
