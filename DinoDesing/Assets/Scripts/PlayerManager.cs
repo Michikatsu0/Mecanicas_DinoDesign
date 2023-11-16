@@ -15,15 +15,15 @@ public class PlayerManager : MonoBehaviour
     public List<AudioClip> audioClips = new List<AudioClip>();
     public LayerMask groundLayer;
 
-    private Rigidbody2D playerRb;
+    private Rigidbody2D playerRgbd2D;
     private Animator animator;
     
     private AudioSource audioSource;
     
     public float speed, jumpForce, groundRadiusCircle, maxDistanceCircle;
-    private float input;
+    private float inputX, inputY;
     private int currentDinoIndex;
-    private bool canJump = true, flag = true, deadScript;
+    private bool canJump = true, flag = true, deadScript, isClimbing;
 
     private int HCMove = Animator.StringToHash("Move");
     private int HCGrounded = Animator.StringToHash("IsGrounded");
@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        playerRb = GetComponent<Rigidbody2D>();
+        playerRgbd2D = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
 
         ChangeDino(currentDinoIndex);
@@ -49,9 +49,10 @@ public class PlayerManager : MonoBehaviour
             return;
         }
 
-        input = Input.GetAxis("Horizontal");
+        inputX = Input.GetAxis("Horizontal");
+        inputY = Input.GetAxis("Vertical");
 
-        if (input != 0)
+        if (inputX != 0)
         {
             if (flag)
             {
@@ -65,25 +66,36 @@ public class PlayerManager : MonoBehaviour
             flag = true;
         }
 
-        if (input < 0)
+        if (inputX < 0)
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-        else if (input > 0)
+        else if (inputX > 0)
             transform.rotation = Quaternion.Euler(0f, 0f, 0f);
 
         if (canJump && Input.GetButton("Jump") && IsGrounded())
         {
             canJump = false;
-            playerRb.velocity = Vector2.up * jumpForce;
+            playerRgbd2D.velocity = Vector2.up * jumpForce;
         }
 
         if (Input.GetButtonUp("Jump"))
             canJump = true;
 
-
-
         animator.SetBool(HCJump, !canJump);
-        animator.SetBool(HCMove, input != 0);
+        animator.SetBool(HCMove, inputX != 0);
         animator.SetBool(HCGrounded, IsGrounded());
+    }
+
+    public void EnterClimb()
+    {
+        isClimbing = true;
+        playerRgbd2D.gravityScale = 0;
+    }
+
+
+    public void OutClimb()
+    {
+        isClimbing = false;
+        playerRgbd2D.gravityScale = 9f;
     }
 
     public void Dead()
@@ -155,7 +167,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (deadScript) return;
 
-        playerRb.velocity = new Vector2(input * speed, playerRb.velocity.y);
+        playerRgbd2D.velocity = isClimbing ? new Vector2(inputX * speed, inputY * speed) : new Vector2(inputX * speed, playerRgbd2D.velocity.y);
     }
 
     private Vector3 center;

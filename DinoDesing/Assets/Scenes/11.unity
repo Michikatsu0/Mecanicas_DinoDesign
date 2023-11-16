@@ -7483,6 +7483,70 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8474139842953319864, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139842953319864, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139842953319864, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843442493841, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843442493841, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843442493841, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082297, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082297, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082303, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082303, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082303, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082303, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082303, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082303, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082303, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474139843924082303, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00526390dfa375049b4628cd22eb2877, type: 3}
 --- !u!4 &1899321426 stripped
@@ -7545,8 +7609,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 52866135
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d70111b06af15f44ad2564b7d1b77c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10296,14 +10360,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2029194990}
     m_Modifications:
-    - target: {fileID: 3503411627664166667, guid: 44f618022d8e0dd4f953562e3d9b7c8f, type: 3}
-      propertyPath: m_Size.y
-      value: 5.227962
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503411627664166667, guid: 44f618022d8e0dd4f953562e3d9b7c8f, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.6186936
-      objectReference: {fileID: 0}
     - target: {fileID: 5556169438431436708, guid: 44f618022d8e0dd4f953562e3d9b7c8f, type: 3}
       propertyPath: m_RootOrder
       value: 17
