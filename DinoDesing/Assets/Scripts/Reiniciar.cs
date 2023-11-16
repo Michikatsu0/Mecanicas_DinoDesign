@@ -7,6 +7,6 @@ public class Reiniciar : MonoBehaviour
 {
     public void LoadScene2()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
