@@ -20,7 +20,7 @@ public class TutorialManager : MonoBehaviour
     void Update() { 
 
         for (int i = 0; i<popUps.Length; i++)
-            if (i == popUpIndex)
+            if (i== popUpIndex)
             {
                 popUps[popUpIndex].SetActive(true);
             }
