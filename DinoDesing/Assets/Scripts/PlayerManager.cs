@@ -23,7 +23,7 @@ public class PlayerManager : MonoBehaviour
     public float speed, jumpForce, groundRadiusCircle, maxDistanceCircle;
     private float input;
     private int currentDinoIndex;
-    private bool canJump = true, flag = true;
+    private bool canJump = true, flag = true, deadScript;
 
     private int HCMove = Animator.StringToHash("Move");
     private int HCGrounded = Animator.StringToHash("IsGrounded");
@@ -43,6 +43,8 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
+        if (deadScript) return;
+
         input = Input.GetAxis("Horizontal");
 
         if (input != 0)
@@ -80,6 +82,18 @@ public class PlayerManager : MonoBehaviour
         animator.SetBool(HCGrounded, IsGrounded());
     }
 
+    public void Dead()
+    {
+        animator.SetBool(HCDead, true);
+        deadScript = true;
+        StartCoroutine(DisableDead());
+    }
+
+    private IEnumerator DisableDead()
+    {
+        yield return new WaitForSeconds(0.1f);
+        animator.SetBool(HCDead, false);
+    }
 
     public void Attack()
     {
@@ -135,6 +149,8 @@ public class PlayerManager : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (deadScript) return;
+
         playerRb.velocity = new Vector2(input * speed, playerRb.velocity.y);
     }
 
