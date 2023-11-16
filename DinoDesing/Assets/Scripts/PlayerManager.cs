@@ -43,7 +43,11 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if (deadScript) return;
+        if (deadScript)
+        {
+            particleSystems[1].Stop();
+            return;
+        }
 
         input = Input.GetAxis("Horizontal");
 
@@ -119,7 +123,7 @@ public class PlayerManager : MonoBehaviour
         dinoColliders[currentDinoIndex].SetActive(true);
         animator.runtimeAnimatorController = animatorControllers[currentDinoIndex];
         animator.SetBool(HCAttack, false);
-
+        particleSystems[1].transform.position = dinoEffectTransform[currentDinoIndex].position;
         StartCoroutine(ParticleChange());
     }
 

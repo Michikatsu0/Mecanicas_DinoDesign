@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3255632542010732299}
   - component: {fileID: 3255632542010732298}
   m_Layer: 0
-  m_Name: polvo roca
+  m_Name: polvo roca 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4763,7 +4763,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 56efb7c58d1901046867feca2c3cf64f, type: 2}
+  - {fileID: 2100000, guid: a72a5df2fea6a9542a9cafa59f349aac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
