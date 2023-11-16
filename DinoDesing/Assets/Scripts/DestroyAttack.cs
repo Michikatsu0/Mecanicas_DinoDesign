@@ -11,13 +11,12 @@ public class DestroyAttack : MonoBehaviour
     private AudioSource audioSource;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    private Collider2D col2D;
+    public Collider2D col2D;
     public bool deadDamage;
     private int HCDead = Animator.StringToHash("Dead");
 
     private void Start()
     {
-        col2D = GetComponent<Collider2D>();
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -32,6 +31,7 @@ public class DestroyAttack : MonoBehaviour
         if (player && flag)
         {
             flag = false;
+
             if (player.dinoColliders[0].activeSelf)
             {
                 player.Attack();
@@ -39,6 +39,7 @@ public class DestroyAttack : MonoBehaviour
                 audioSource.PlayOneShot(audioClip);
                 animator?.SetBool(HCDead, true);
                 col2D.isTrigger = true;
+                col2D.enabled = false;
                 StartCoroutine(DeadEnemy());
             }
             else
@@ -46,7 +47,7 @@ public class DestroyAttack : MonoBehaviour
                 if (deadDamage)
                 {
                     player.Dead();
-                    panelDead.SetActive(true);
+                    panelDead?.SetActive(true);
                 }
             }
         }

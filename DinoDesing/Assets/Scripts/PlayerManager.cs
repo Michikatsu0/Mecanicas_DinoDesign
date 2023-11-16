@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public List<AnimatorController> animatorControllers = new List<AnimatorController>();
+    public List<RuntimeAnimatorController> animatorControllers = new List<RuntimeAnimatorController>();
     public List<GameObject> dinoColliders = new List<GameObject>();
     public List<Transform> dinoEffectTransform = new List<Transform>();
     public List<ParticleSystem> particleSystems = new List<ParticleSystem>();
