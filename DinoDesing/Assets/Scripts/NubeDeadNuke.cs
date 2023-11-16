@@ -5,6 +5,12 @@ using UnityEngine;
 public class NubeDeadNuke : MonoBehaviour
 {
     public float explosionForce = 5f;
+    public GameObject panelDead;
+
+    private void Start()
+    {
+        panelDead.SetActive(false);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,6 +28,7 @@ public class NubeDeadNuke : MonoBehaviour
 
             rgbd.constraints = RigidbodyConstraints2D.None;
             player.Dead();
+            panelDead.SetActive(true);
         }
     }
 
