@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    public PlayerManager playerMovement;
+    //public PlayerMovement playerMovement;
     public GameObject[] popUps;
     private int popUpIndex;
     //public GameObject spawner;
     //public float waitTime=2f;
 
 
-    void Start()
+     void Start()
     {
         //playerMovement.jumpForce=0;
     }
@@ -46,8 +46,11 @@ public class TutorialManager : MonoBehaviour
             }
             else if (popUpIndex == 2)
             {
-
-            }
+                if (Input.GetButton("Jump"))
+                {   
+                popUpIndex++;
+                }
+             }
             else if (popUpIndex == 3)
             {
 
